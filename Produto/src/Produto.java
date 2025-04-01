@@ -11,18 +11,53 @@ public class Produto {
     int qt_comprada;
     double custo;
     String nome2;
+    // Getters
+    public int getCodigo() {
+        return codigo;
+    }
 
-    boolean Igual(String nome, String nome2){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Produto para comparar:");
-        nome2 = sc.nextLine();
-        if(nome.equals(nome2)){
-            System.out.println("Os produtos são iguais.");
-            return true;
-        } else {
-            System.out.println("Os produtos são diferentes!");
-            return false;
-        }
+    public String getNome() {
+        return nome;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public float getValor() {
+        return valor;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    // Setters
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public void setValor(float valor) {
+        this.valor = valor;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    public boolean Igual(Produto outroproduto){
+        if(this == outroproduto) return true;
+        if(outroproduto == null) return false;
+        Produto outroProduto = null;
+        return this.codigo == outroProduto.getCodigo() && 
+                this.nome.equalsIgnoreCase(outroProduto.getNome());
     }
 
 
@@ -82,10 +117,6 @@ public class Produto {
         System.out.println("Novo estoque: " + quantidade);
     }
 
-
-    Produto(int codigo){
-        this.codigo = codigo;
-    }
 
     Produto(int codigo, String nome,int quantidade, float valor ,String tipo){
         this.codigo = codigo;
